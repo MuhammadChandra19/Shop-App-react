@@ -3,7 +3,9 @@ import { Layout, Col, Row } from 'antd';
 import { HeartTwoTone, SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 const { Header } = Layout
-const AppHeader = () => {
+
+
+const AppHeader: React.FC = () => {
   return (
     <Header style={{ background: 'white', padding: '0 10px' }}>
       <Row>

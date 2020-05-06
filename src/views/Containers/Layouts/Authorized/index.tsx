@@ -4,7 +4,8 @@ import BottomNavigation from '../../BottomNavigation';
 import Home from '@app/views/Pages/Home';
 import AppHeader from '../../AppHeader';
 const { Content } = Layout;
-const Authorized = () => {
+
+const Authorized: React.FC<any> = () => {
   return (
     <Layout>
       <AppHeader />
