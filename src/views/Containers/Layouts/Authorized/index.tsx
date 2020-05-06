@@ -1,8 +1,10 @@
 import React from 'react';
 import { Layout } from 'antd';
 import BottomNavigation from '../../BottomNavigation';
-import Home from '@app/views/Pages/Home';
+// import Home from '@app/views/Pages/Home';
 import AppHeader from '../../AppHeader';
+import SwitchRoute from '@app/views/Components/SwitchRoute';
+import { PAGES } from '@app/routes';
 const { Content } = Layout;
 
 const Authorized: React.FC<any> = () => {
@@ -12,7 +14,7 @@ const Authorized: React.FC<any> = () => {
       <Content
         style={{ background: 'white' }}
       >
-        <Home />
+        <SwitchRoute routes={PAGES} />
       </Content>
 
       <BottomNavigation />

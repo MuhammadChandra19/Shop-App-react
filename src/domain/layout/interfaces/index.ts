@@ -1,5 +1,6 @@
 export interface LayoutConfigProps {
-  hasDefaultHeader?: boolean;
+  haveHeader?: boolean;
+  haveDefaultHeader?: boolean;
   headerText?: string;
   isBottomNavVisible: boolean;
 }

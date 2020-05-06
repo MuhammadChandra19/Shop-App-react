@@ -1,5 +1,5 @@
 import { RouteItem } from '../utils/router/route.item'
-import { HomeOutlined } from '@ant-design/icons'
+import { HomeOutlined, GlobalOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons'
 import { MENU } from '../constant/menu'
 export const PAGES: Array<RouteItem> = [
   {
@@ -8,16 +8,52 @@ export const PAGES: Array<RouteItem> = [
     icon: HomeOutlined,
     isOnBottomNavbar: true,
     url: MENU.HOME,
-    component: 'views/pages/Home',
+    component: 'views/Pages/Home',
     layoutConfig: { isBottomNavVisible: true }
   },
   {
     key: 'feed',
-    text: 'Home',
-    icon: HomeOutlined,
+    text: 'Feed',
+    icon: GlobalOutlined,
     isOnBottomNavbar: true,
-    url: MENU.HOME,
-    component: 'views/pages/Home',
+    url: MENU.FEED,
+    component: 'views/Pages/Feed',
     layoutConfig: { isBottomNavVisible: true }
+  },
+  {
+    key: 'search',
+    text: '',
+    isOnBottomNavbar: false,
+    url: MENU.SEARCH_PAGE,
+    component: 'views/Pages/SearchPage',
+    layoutConfig: { isBottomNavVisible: false, haveDefaultHeader: false }
+  },
+  {
+    key: 'cart',
+    text: 'Cart',
+    icon: ShoppingCartOutlined,
+    isOnBottomNavbar: true,
+    url: MENU.CART,
+    component: 'views/Pages/Cart',
+    layoutConfig: { isBottomNavVisible: true, haveHeader: false }
+  },
+  {
+    key: 'profile',
+    text: 'Profile',
+    icon: UserOutlined,
+    isOnBottomNavbar: true,
+    url: MENU.PROFILE,
+    component: 'views/Pages/Profile',
+    layoutConfig: { isBottomNavVisible: true, haveHeader: false }
+  },
+  {
+    key: 'detailpage',
+    text: '',
+    isOnBottomNavbar: false,
+    url: MENU.DETAIL_PRODUCT,
+    component: 'views/Pages/DetailProduct',
+    layoutConfig: { isBottomNavVisible: false, haveHeader: false }
   }
+
+
 ]

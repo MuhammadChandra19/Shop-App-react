@@ -2,7 +2,8 @@ export const MENU = {
   HOME: '/',
   LOGIN: '/login',
   FEED: '/feed',
+  CART: '/cart',
   SEARCH_PAGE: '/search',
-  PURCHASED: '/purchased',
+  PROFILE: '/profile',
   DETAIL_PRODUCT: '/detail/:id',
 }

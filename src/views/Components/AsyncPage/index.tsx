@@ -29,7 +29,7 @@ export default function AsyncPage(pageComponent: any) {
           this.setState({
             component: <Component {...this.props} />,
           });
-        }, 500);
+        }, 100);
       }
     }
 

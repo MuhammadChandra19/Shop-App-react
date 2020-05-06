@@ -8,7 +8,8 @@ export class LayoutReducer extends Reducer<LayoutState> {
   constructor() {
     super({
       layoutConfig: {
-        hasDefaultHeader: true,
+        haveHeader: true,
+        haveDefaultHeader: true,
         headerText: '',
         isBottomNavVisible: true
       }
