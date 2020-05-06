@@ -157,7 +157,7 @@ module.exports = {
       },
     }),
     new AntdScssThemePlugin(
-      path.join(__dirname, 'src', 'styles', '_global.scss'),
+      path.join(__dirname, 'src', 'views/styles', '_global.scss'),
     ),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(dotenv.parsed),
