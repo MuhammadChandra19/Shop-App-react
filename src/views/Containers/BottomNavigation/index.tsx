@@ -5,9 +5,16 @@ import '@app/views/styles/Container/bottomNav.scss'
 // import { HomeOutlined, GlobalOutlined } from '@ant-design/icons';
 import { PAGES } from '@app/routes';
 import { RouteItem } from '@app/utils/router/route.item';
-import { history } from '@app/utils/redux/store';
+
+
 // import { MENU } from '@app/constant/menu';
-const BottomNavigation = () => {
+
+interface BottomNavigationProps {
+  currentPage: string;
+  onSelect: (url: string, key: string) => void
+
+}
+const BottomNavigation: React.FC<BottomNavigationProps> = ({ currentPage, onSelect }) => {
   // const [activeNav, setActiveNav] = useState('home')
 
   const renderNavItem = (item: RouteItem) => {
@@ -16,10 +23,21 @@ const BottomNavigation = () => {
         <div
           key={item.key}
           className="bottom-nav__item"
-          onClick={() => history.replace(item.url)}
+          onClick={() => onSelect(item.url, item.key)}
         >
-          <item.icon />
-          <span className="bottom-nav__item__text">{item.text}</span>
+          <item.icon
+            style={{
+              color: currentPage === item.key ? "#7ACBCF" : "#E8E8E8"
+            }}
+          />
+          <span
+            className="bottom-nav__item__text"
+            style={{
+              color: currentPage === item.key ? "#F39F1E" : "#E8E8E8"
+            }}
+          >
+            {item.text}
+          </span>
         </div>
       )
   }

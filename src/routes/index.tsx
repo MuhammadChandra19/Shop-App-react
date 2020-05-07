@@ -10,7 +10,7 @@ export const PAGES: Array<RouteItem> = [
     isOnBottomNavbar: true,
     url: MENU.HOME,
     component: 'views/Pages/Home',
-    layoutConfig: { isBottomNavVisible: true },
+    layoutConfig: { isBottomNavVisible: true, haveDefaultHeader: true },
     middleware: [Authenticated]
   },
   {
@@ -20,7 +20,7 @@ export const PAGES: Array<RouteItem> = [
     isOnBottomNavbar: true,
     url: MENU.FEED,
     component: 'views/Pages/Feed',
-    layoutConfig: { isBottomNavVisible: true },
+    layoutConfig: { isBottomNavVisible: true, textHeader: 'Feed' },
     middleware: [Authenticated]
   },
   {
@@ -39,7 +39,7 @@ export const PAGES: Array<RouteItem> = [
     isOnBottomNavbar: true,
     url: MENU.CART,
     component: 'views/Pages/Cart',
-    layoutConfig: { isBottomNavVisible: true, haveHeader: false },
+    layoutConfig: { isBottomNavVisible: true, textHeader: 'Cart' },
     middleware: [Authenticated]
   },
   {
@@ -49,16 +49,16 @@ export const PAGES: Array<RouteItem> = [
     isOnBottomNavbar: true,
     url: MENU.PROFILE,
     component: 'views/Pages/Profile',
-    layoutConfig: { isBottomNavVisible: true, haveHeader: false },
+    layoutConfig: { isBottomNavVisible: true, textHeader: 'Profile' },
     middleware: [Authenticated]
   },
   {
     key: 'detailpage',
     text: '',
     isOnBottomNavbar: false,
-    url: MENU.DETAIL_PRODUCT,
+    url: `${MENU.DETAIL_PRODUCT}/:id`,
     component: 'views/Pages/DetailProduct',
-    layoutConfig: { isBottomNavVisible: false, haveHeader: false },
+    layoutConfig: { isBottomNavVisible: false, textHeader: 'Detail Product' },
     middleware: [Authenticated]
   }
 

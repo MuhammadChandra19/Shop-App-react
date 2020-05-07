@@ -5,5 +5,6 @@ export const MENU = {
   CART: '/cart',
   SEARCH_PAGE: '/search',
   PROFILE: '/profile',
-  DETAIL_PRODUCT: '/detail/:id',
+  DETAIL_PRODUCT: '/detail',
+  FAVORITES: '/favorites'
 }

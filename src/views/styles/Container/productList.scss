@@ -1,0 +1,21 @@
+.product-list{
+  overflow-y: scroll;
+  .ant-card{
+    margin: 10px;
+    &-cover{
+      max-width: 400px;
+      // max-height: 250px;
+      img{
+        width: 100%;
+      }
+    }
+    &-actions > li{
+      margin: 2px 0;
+      p{
+        margin-bottom: 0;
+        font-size: 11px;
+      }
+    }
+
+  }
+}

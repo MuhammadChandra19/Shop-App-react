@@ -1,10 +1,13 @@
 @import '~@app/views/styles/global';
 .bottom-nav{
   position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border: 1px solid rgba(143, 143, 143, 0.65);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid rgba(143, 143, 143, 0.65);
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 425px;
   .ant-layout-footer{
     background-color:white;
     // color: white;
