@@ -17,7 +17,17 @@
     margin: 30px;
     &__input{
       input{
-        margin-bottom: 5px;
+        margin-top: 5px;
+      }
+      .error{
+        font-size: 11px;
+        /* text-align: left; */
+        float: left;
+        font-style: italic;
+        color: red;
+      }
+      .ant-row{
+        margin-top: 10px;
       }
       margin-bottom: 20px;
     }

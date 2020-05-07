@@ -1,7 +1,6 @@
 import React from 'react';
-import { Layout, Col, Row } from 'antd';
+import { Layout, Col, Row, Input } from 'antd';
 import { HeartTwoTone, SearchOutlined } from '@ant-design/icons';
-import { Input } from 'antd';
 const { Header } = Layout
 
 
