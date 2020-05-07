@@ -1,0 +1,18 @@
+.category-landing{
+  display: flex;
+  overflow: scroll;
+
+  &__item {
+    display: grid;
+    margin: 5px;
+    img{
+      width: 70px;
+      height: 70px;
+    }
+    p{
+      margin-bottom: 0;
+      color: #F39F1E;
+      font-size: 12px;
+    }
+  }
+}

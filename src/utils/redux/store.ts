@@ -13,10 +13,13 @@ import { CommonReducer } from '@app/domain/common/redux/reducers';
 import { createBrowserHistory, History } from 'history';
 import { LayoutState } from '@app/domain/layout/redux/state';
 import { LayoutReducer } from '@app/domain/layout/redux/reducers';
+import { ShopState } from '@app/domain/app/redux/states';
+import { ShopReducer } from '@app/domain/app/redux/reducers';
 
 export interface AppState {
   common: CommonState;
   layout: LayoutState;
+  shop: ShopState;
 }
 
 const logger: Middleware = () => (next) => (action) => {
@@ -36,6 +39,7 @@ export function configureStore(): Store<AppState> {
   let rootReducer: ReducersMapObject<AppState, any> = {
     common: new CommonReducer().build(),
     layout: new LayoutReducer().build(),
+    shop: new ShopReducer().build()
   }
 
   return createStore(
