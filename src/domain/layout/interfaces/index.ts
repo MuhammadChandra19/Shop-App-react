@@ -1,4 +1,4 @@
-export interface LayoutConfigProps {
+export interface ILayoutConfigProps {
   haveHeader?: boolean;
   haveDefaultHeader?: boolean;
   headerText?: string;

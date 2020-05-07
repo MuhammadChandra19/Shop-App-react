@@ -1,5 +1,5 @@
 import { AntdIconProps } from "@ant-design/icons/lib/components/AntdIcon";
-import { LayoutConfigProps } from "@app/domain/layout/interfaces";
+import { ILayoutConfigProps } from "@app/domain/layout/interfaces";
 
 export interface RouteItem {
   key: string;
@@ -8,5 +8,5 @@ export interface RouteItem {
   component: string;
   icon?: React.ForwardRefExoticComponent<AntdIconProps & React.RefAttributes<HTMLSpanElement>>;
   isOnBottomNavbar: boolean;
-  layoutConfig: LayoutConfigProps;
+  layoutConfig: ILayoutConfigProps;
 }

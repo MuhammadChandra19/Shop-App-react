@@ -1,5 +1,5 @@
-import { LayoutConfigProps } from "../../interfaces";
+import { ILayoutConfigProps } from "../../interfaces";
 
 export interface LayoutState {
-  layoutConfig: LayoutConfigProps;
+  layoutConfig: ILayoutConfigProps;
 }

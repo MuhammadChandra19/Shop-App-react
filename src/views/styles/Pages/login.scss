@@ -1,0 +1,36 @@
+.login-form{
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  margin: auto;
+  /* display: block; */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  &__content{
+    display: block;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #EDEDED;
+    margin: 30px;
+    &__input{
+      input{
+        margin-bottom: 5px;
+      }
+      margin-bottom: 20px;
+    }
+
+    .kep-login-facebook {
+      border-radius: 5px !important;
+      /* height: 20px; */
+      padding: 14px;
+      width: 217px;
+      margin-bottom: 8px;
+    }
+    .googleBtn{
+      border-radius: 5px !important;
+    }
+  }
+}

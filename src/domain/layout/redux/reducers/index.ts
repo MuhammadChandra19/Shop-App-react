@@ -1,6 +1,6 @@
 import { Reducer, SingleReducer } from "@app/utils/redux/reducer"
 import { LayoutState } from "../state";
-import { LayoutConfigProps } from "../../interfaces";
+import { ILayoutConfigProps } from "../../interfaces";
 import { Dict } from "@app/utils/types";
 import { SET_LAYOUT_STATE } from "../actions";
 
@@ -16,7 +16,7 @@ export class LayoutReducer extends Reducer<LayoutState> {
     })
   }
 
-  public setLayoutState(state: LayoutState, payload: LayoutConfigProps): LayoutState {
+  public setLayoutState(state: LayoutState, payload: ILayoutConfigProps): LayoutState {
     return {
       ...state,
       layoutConfig: {
