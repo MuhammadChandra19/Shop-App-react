@@ -1,6 +1,6 @@
 import { BaseService } from "@app/domain/common/services/base.service";
 import { appApi } from "@app/api/appApi";
-import { SET_INIT_HOME_LOADING, SET_CATEGORYLIST, SET_PRODUCT_LIST, SET_FAVORITE_PRODUCT, SET_FOUND_ITEM, SET_INIT_SEARCH, SET_ITEM_TO_CART } from "../redux/actions";
+import { SET_INIT_HOME_LOADING, SET_CATEGORYLIST, SET_PRODUCT_LIST, SET_FAVORITE_PRODUCT, SET_FOUND_ITEM, SET_INIT_SEARCH, SET_ITEM_TO_CART, SET_PURCHASED_ITEM } from "../redux/actions";
 import { Dict } from "@app/utils/types";
 import { IProduct } from "../interface";
 
@@ -55,6 +55,10 @@ class AppService extends BaseService {
 
   public addToCart = (product: IProduct) => {
     this.dispatch(SET_ITEM_TO_CART, product)
+  }
+
+  public purchaseItem = (product: IProduct) => {
+    this.dispatch(SET_PURCHASED_ITEM, product)
   }
 }
 

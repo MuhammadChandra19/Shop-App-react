@@ -8,4 +8,5 @@ export interface ShopState {
   itemFound: Dict<IProduct>
   initSearch: boolean
   cart: Dict<ICart>
+  purchaseHistory: Dict<IProduct>
 }

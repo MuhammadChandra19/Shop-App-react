@@ -1,7 +1,7 @@
 import { Reducer, SingleReducer } from "@app/utils/redux/reducer";
 import { ShopState } from "../states";
 import { ICategory, IProduct } from "../../interface";
-import { SET_CATEGORYLIST, SET_PRODUCT_LIST, SET_FAVORITE_PRODUCT, SET_FOUND_ITEM, SET_INIT_SEARCH, SET_ITEM_TO_CART } from "../actions";
+import { SET_CATEGORYLIST, SET_PRODUCT_LIST, SET_FAVORITE_PRODUCT, SET_FOUND_ITEM, SET_INIT_SEARCH, SET_ITEM_TO_CART, SET_PURCHASED_ITEM } from "../actions";
 import { Dict } from "@app/utils/types";
 
 export class ShopReducer extends Reducer<ShopState> {
@@ -13,7 +13,8 @@ export class ShopReducer extends Reducer<ShopState> {
       initialLoading: true,
       itemFound: {},
       initSearch: true,
-      cart: {}
+      cart: {},
+      purchaseHistory: {}
     })
   }
 
@@ -76,6 +77,12 @@ export class ShopReducer extends Reducer<ShopState> {
       initSearch
     }
   }
+  public setPurchasedItem(state: ShopState, purchaseHistory: Dict<IProduct>): ShopState {
+    return {
+      ...state,
+      purchaseHistory,
+    }
+  }
 
   get actions(): Dict<SingleReducer<ShopState>> {
     return {
@@ -84,7 +91,8 @@ export class ShopReducer extends Reducer<ShopState> {
       [SET_FAVORITE_PRODUCT]: this.setFavoriteProduct,
       [SET_FOUND_ITEM]: this.setFoundItem,
       [SET_INIT_SEARCH]: this.setInitSearch,
-      [SET_ITEM_TO_CART]: this.setItemToCart
+      [SET_ITEM_TO_CART]: this.setItemToCart,
+      [SET_PURCHASED_ITEM]: this.setPurchasedItem
     }
   }
 }

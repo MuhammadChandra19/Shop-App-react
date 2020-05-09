@@ -30,7 +30,6 @@ const Authorized: React.FC = () => {
   useEffect(() => {
     setLayoutConfig()
     history.listen((location) => {
-      console.log("executed");
       const path = location.pathname.split("/")[1]
       setLayoutConfig(path)
     })
