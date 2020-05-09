@@ -1,6 +1,6 @@
 import { BaseService } from "@app/domain/common/services/base.service";
 import { IUser } from "../interfaces";
-import { setLocalStorageObj } from "@app/utils/localstorage";
+import { setLocalStorageObj, getLocalStorageObj } from "@app/utils/localstorage";
 import { STORAGE } from "@app/constant/storage";
 import { history } from "@app/utils/redux/store";
 import { MENU } from "@app/constant/menu";
@@ -8,6 +8,7 @@ import { MENU } from "@app/constant/menu";
 class AuthService extends BaseService {
 
   public facebookLogin = (response: any) => {
+    console.log("kesini")
     const user: IUser = {
       accessToken: response.accessToken,
       email: response.email,
@@ -38,6 +39,16 @@ class AuthService extends BaseService {
     }
     this.setAuthStorage(user)
     history.replace(MENU.HOME)
+  }
+
+  public logout = () => {
+    localStorage.clear()
+    history.replace(MENU.LOGIN)
+  }
+
+  public getUserData = (): { name: string, picture: string } => {
+    const { name, picture } = getLocalStorageObj<IUser>(STORAGE.USER);
+    return { name, picture }
   }
   private setAuthStorage = (user: IUser) => {
     setLocalStorageObj(STORAGE.USER, user)
