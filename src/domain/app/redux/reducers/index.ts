@@ -1,6 +1,6 @@
 import { Reducer, SingleReducer } from "@app/utils/redux/reducer";
 import { ShopState } from "../states";
-import { ICategory, IProduct } from "../../interface";
+import { ICategory, IProduct, IPurchasedHistory } from "../../interface";
 import { SET_CATEGORYLIST, SET_PRODUCT_LIST, SET_FAVORITE_PRODUCT, SET_FOUND_ITEM, SET_INIT_SEARCH, SET_ITEM_TO_CART, SET_PURCHASED_ITEM } from "../actions";
 import { Dict } from "@app/utils/types";
 
@@ -77,10 +77,15 @@ export class ShopReducer extends Reducer<ShopState> {
       initSearch
     }
   }
-  public setPurchasedItem(state: ShopState, purchaseHistory: Dict<IProduct>): ShopState {
+  public setPurchasedItem(state: ShopState, purchaseHistory: IPurchasedHistory): ShopState {
     return {
       ...state,
-      purchaseHistory,
+      purchaseHistory: {
+        [purchaseHistory.purchasedId]: {
+          ...purchaseHistory
+        },
+        ...state.purchaseHistory
+      },
     }
   }
 

@@ -18,6 +18,10 @@ export interface ICart extends IProduct {
   total: number
 }
 
+export interface IPurchasedHistory extends IProduct {
+  purchasedId: string
+}
+
 export interface IAppItem {
   category: Array<ICategory>
   productPromo: Array<IProduct>

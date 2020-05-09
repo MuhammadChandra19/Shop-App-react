@@ -1,4 +1,4 @@
-import { ICategory, IProduct, ICart } from "../../interface";
+import { ICategory, IProduct, ICart, IPurchasedHistory } from "../../interface";
 import { Dict } from "@app/utils/types";
 
 export interface ShopState {
@@ -8,5 +8,5 @@ export interface ShopState {
   itemFound: Dict<IProduct>
   initSearch: boolean
   cart: Dict<ICart>
-  purchaseHistory: Dict<IProduct>
+  purchaseHistory: Dict<IPurchasedHistory>
 }

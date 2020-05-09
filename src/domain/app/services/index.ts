@@ -58,7 +58,9 @@ class AppService extends BaseService {
   }
 
   public purchaseItem = (product: IProduct) => {
-    this.dispatch(SET_PURCHASED_ITEM, product)
+    let id = Math.random().toString(36).substring(4);
+
+    this.dispatch(SET_PURCHASED_ITEM, { purchasedId: id, ...product })
   }
 }
 
