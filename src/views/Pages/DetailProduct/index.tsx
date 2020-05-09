@@ -3,10 +3,12 @@ import { match } from 'react-router';
 import { useSelector } from 'react-redux';
 import { AppState, history } from '@app/utils/redux/store';
 import { IProduct } from '@app/domain/app/interface';
-import { ShareAltOutlined, HeartFilled, HeartOutlined, LeftCircleOutlined, MoneyCollectOutlined } from '@ant-design/icons';
+import { ShareAltOutlined, LeftCircleOutlined, MoneyCollectOutlined } from '@ant-design/icons';
 import "@app/views/styles/Pages/detailProduct.scss"
 import { Button } from 'antd';
 import appService from '@app/domain/app/services';
+import FavoriteButton from '@app/views/Containers/FavoriteButton';
+import { shareProduct } from './share';
 
 interface DetailProductProps {
   match: match<{ id: string }>
@@ -16,20 +18,19 @@ const DetailProduct: React.FC<DetailProductProps> = ({
 }) => {
   const { purchaseItem } = appService
   const product = useSelector<AppState, IProduct>(state => state.shop.productList[id])
+
   return (
     <div className="product-detail">
       <div className="image-container">
         <div className="image-container__action">
           <LeftCircleOutlined onClick={() => history.goBack()} />
-          <ShareAltOutlined />
+          <ShareAltOutlined onClick={shareProduct} />
         </div>
         <img src={product.imageUrl} alt="loading...." />
       </div>
       <div className="product-detail__title">
         <h3>{product.title}</h3>
-        {
-          product.isLoved ? <HeartFilled /> : <HeartOutlined />
-        }
+        <FavoriteButton isLoved={product.isLoved} productId={product.id} />
       </div>
       <div className="product-detail__description">
         {product.description}

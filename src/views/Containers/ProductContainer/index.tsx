@@ -1,13 +1,14 @@
 import React from 'react';
 import { IProduct } from '@app/domain/app/interface';
 import { Card } from 'antd';
-import { HeartOutlined, ShopOutlined, HeartTwoTone } from '@ant-design/icons';
+import { ShopOutlined } from '@ant-design/icons';
 import ImageAsync from '@app/views/Components/ImageAsync';
 import "@app/views/styles/Container/productList.scss"
 import appService from '@app/domain/app/services';
 import { Dict } from '@app/utils/types';
 import { history } from '@app/utils/redux/store';
 import { MENU } from '@app/constant/menu';
+import FavoriteButton from '../FavoriteButton';
 
 interface ProductContainerProps {
   productList: Dict<IProduct>
@@ -15,7 +16,7 @@ interface ProductContainerProps {
 
 const ProductContainer: React.FC<ProductContainerProps> = ({ productList }) => {
   // const productList = useSelector<AppState, ProductContainerProps>(state => state.shop.productList)
-  const { setFavorite, addToCart } = appService
+  const { addToCart } = appService
 
   const renderProductItem = (product: IProduct) => (
     <Card
@@ -23,20 +24,7 @@ const ProductContainer: React.FC<ProductContainerProps> = ({ productList }) => {
       style={{ maxWidth: 400, marginTop: 15 }}
       actions={[
         <div style={{ display: 'grid' }}>
-          {
-            product.isLoved ?
-              <HeartTwoTone
-                size={15}
-                twoToneColor="#eb2f96"
-                key="like"
-                onClick={() => setFavorite(product.id)}
-              /> :
-              <HeartOutlined
-                size={15}
-                key="like"
-                onClick={() => setFavorite(product.id)}
-              />
-          }
+          <FavoriteButton isLoved={product.isLoved} productId={product.id} />
           <p>
             {product.loved}{`${product.loved > 1 ? 'likes' : 'like'}`}
           </p>
