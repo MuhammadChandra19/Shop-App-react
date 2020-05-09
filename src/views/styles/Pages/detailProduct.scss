@@ -1,0 +1,48 @@
+@import '~@app/views/styles/global';
+.product-detail{
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  .image-container{
+    height: 300px;
+    position: relative;
+    max-width: 400px;
+    margin: auto;
+    &__action{
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 5px;
+      span{
+        font-size: 25px;
+      }
+    }
+    img{
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__title{
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+    h3{
+      color: $primary-color;
+    }
+    
+  }
+  &__description{
+    text-align: left
+  }
+  &__action{
+    justify-content: flex-end;
+    display: flex;
+    margin-bottom: 10px;
+    h3{
+      color: $primary-color;
+      margin-right: 5px;
+    }
+  }
+}

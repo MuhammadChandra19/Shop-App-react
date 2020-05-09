@@ -15,7 +15,7 @@ interface BottomNavigationProps {
 
 }
 const BottomNavigation: React.FC<BottomNavigationProps> = ({ currentPage, onSelect }) => {
-  // const [activeNav, setActiveNav] = useState('home')
+
 
   const renderNavItem = (item: RouteItem) => {
     return item.isOnBottomNavbar &&

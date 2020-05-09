@@ -53,7 +53,7 @@ export const PAGES: Array<RouteItem> = [
     middleware: [Authenticated]
   },
   {
-    key: 'detailpage',
+    key: 'detail',
     text: '',
     isOnBottomNavbar: false,
     url: `${MENU.DETAIL_PRODUCT}/:id`,

@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
-import { Layout, Col, Row, Input } from 'antd';
-import { HeartTwoTone, SearchOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import React, {
+  // useState 
+} from 'react';
+import { Layout, Col, Row } from 'antd';
+
 import { ILayoutConfigProps } from '@app/domain/layout/interfaces';
 import { history } from '@app/utils/redux/store';
 import { MENU } from '@app/constant/menu';
-import layoutService from '@app/domain/layout/services';
+// import layoutService from '@app/domain/layout/services';
+import SearchProduct from '../SearchProduct';
+import AddToFavorite from '@app/views/Components/AddToFavorite';
+import BackButton from '@app/views/Components/BackButton';
 const { Header } = Layout
 
 interface AppHeaderProps {
@@ -12,8 +17,8 @@ interface AppHeaderProps {
   layoutconfig: ILayoutConfigProps;
 }
 const AppHeader: React.FC<AppHeaderProps> = ({ currentPage, layoutconfig }) => {
-  const { setLayoutConfig } = layoutService
-  const [lastPage, setLastPage] = useState("home")
+  // const { setLayoutConfig } = layoutService
+  // const [lastPage, setLastPage] = useState("home")
   return (
     <Header style={{ background: 'white', padding: '0 10px' }}>
 
@@ -24,45 +29,26 @@ const AppHeader: React.FC<AppHeaderProps> = ({ currentPage, layoutconfig }) => {
               <Col span={2}>
                 {
                   layoutconfig.haveDefaultHeader ? (
-                    <HeartTwoTone
-                      twoToneColor="#7ACBCF"
-                      style={{
-                        fontSize: 25,
-                        marginTop: 20,
-                        marginLeft: -8,
-                        cursor: "pointer"
-                      }}
-                    />
+                    <AddToFavorite />
                   ) : (
-                      <ArrowLeftOutlined
-                        onClick={() => {
-                          history.goBack()
-                          setLayoutConfig(lastPage)
-                        }}
-                        style={{
-                          fontSize: 22,
-                          marginTop: 22,
-                          marginLeft: -8,
-                          color: "#7ACBCF",
-                          cursor: "pointer"
-                        }}
+                      <BackButton
+                      // onBack={() => setLayoutConfig(lastPage)}
                       />
+
                     )
-
                 }
-
               </Col>
               <Col span={22}>
-                <Input
-                  prefix={<SearchOutlined style={{ color: "#7ACBCF" }} />}
-                  onFocus={() => {
+                <SearchProduct
+                  onClickOutside={() => {
                     if (currentPage === 'home') {
                       history.push(MENU.SEARCH_PAGE)
 
-                      setLayoutConfig('search')
+                      // setLayoutConfig('search')
                     }
-                    setLastPage(currentPage)
+                    // setLastPage(currentPage)
                   }}
+
                 />
               </Col>
             </Row>

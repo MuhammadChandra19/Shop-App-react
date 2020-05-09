@@ -9,6 +9,9 @@ import layoutService from '@app/domain/layout/services';
 import { history, AppState } from '@app/utils/redux/store';
 import { useSelector } from 'react-redux';
 import { ILayoutConfigProps } from '@app/domain/layout/interfaces';
+
+
+
 const { Content } = Layout;
 
 interface LayoutProps {
@@ -26,12 +29,17 @@ const Authorized: React.FC = () => {
 
   useEffect(() => {
     setLayoutConfig()
+    history.listen((location) => {
+      console.log("executed");
+      const path = location.pathname.split("/")[1]
+      setLayoutConfig(path)
+    })
 
   }, [])
 
   const selectMenu = (url: string, key: string) => {
     history.replace(url)
-    setLayoutConfig(key)
+    // setLayoutConfig(key)
   }
   return (
     <Layout>

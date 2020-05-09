@@ -4,8 +4,9 @@ import "@app/views/styles/Components/imageAsync.scss"
 
 interface ImageAsyncProps {
   imgUrl: string;
+  onClick?: () => void
 }
-const ImageAsync: React.FC<ImageAsyncProps> = ({ imgUrl }) => {
+const ImageAsync: React.FC<ImageAsyncProps> = ({ imgUrl, onClick = () => { } }) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -16,7 +17,7 @@ const ImageAsync: React.FC<ImageAsyncProps> = ({ imgUrl }) => {
     // console.log(imgUrl)
   })
   return (
-    <div className="image-async">
+    <div className="image-async" onClick={onClick}>
 
       <img
         style={{ display: isLoaded ? 'block' : 'none' }}

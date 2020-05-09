@@ -6,6 +6,8 @@ import ImageAsync from '@app/views/Components/ImageAsync';
 import "@app/views/styles/Container/productList.scss"
 import appService from '@app/domain/app/services';
 import { Dict } from '@app/utils/types';
+import { history } from '@app/utils/redux/store';
+import { MENU } from '@app/constant/menu';
 
 interface ProductContainerProps {
   productList: Dict<IProduct>
@@ -13,7 +15,7 @@ interface ProductContainerProps {
 
 const ProductContainer: React.FC<ProductContainerProps> = ({ productList }) => {
   // const productList = useSelector<AppState, ProductContainerProps>(state => state.shop.productList)
-  const { setFavorite } = appService
+  const { setFavorite, addToCart } = appService
 
   const renderProductItem = (product: IProduct) => (
     <Card
@@ -41,13 +43,19 @@ const ProductContainer: React.FC<ProductContainerProps> = ({ productList }) => {
         </div>
         ,
         <div style={{ display: 'grid' }}>
-          <ShopOutlined size={15} key="shop" />
+          <ShopOutlined
+            size={15} key="shop"
+            onClick={() => addToCart(product)}
+          />
           <p>Add to cart</p>
         </div>
 
       ]}
       cover={
-        <ImageAsync imgUrl={product.imageUrl} />
+        <ImageAsync
+          onClick={() => history.push(`${MENU.DETAIL_PRODUCT}/${product.id}`)}
+          imgUrl={product.imageUrl}
+        />
       }
     >
       <Card.Meta

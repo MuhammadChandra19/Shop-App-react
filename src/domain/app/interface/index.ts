@@ -14,6 +14,10 @@ export interface IProduct {
   isLoved?: boolean;
 }
 
+export interface ICart extends IProduct {
+  total: number
+}
+
 export interface IAppItem {
   category: Array<ICategory>
   productPromo: Array<IProduct>
